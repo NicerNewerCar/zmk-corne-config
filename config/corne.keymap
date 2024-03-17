@@ -23,6 +23,34 @@
             bindings = <&t_prefix &kp C>;
             label = "T_NWIN";
         };
+
+        t_cywin: t_cywin {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&t_prefix &kp N>;
+            label = "T_CYWIN";
+        };
+
+        t_vsplit: t_vsplit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&t_prefix &kp PERCENT>;
+            label = "T_VSPLIT";
+        };
+
+        t_hsplit: v_hsplit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&t_prefix &kp DOUBLE_QUOTES>;
+            label = "V_HSPLIT";
+        };
+
+        t_pvwin: t_pvwin {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&t_prefix &kp P>;
+            label = "T_PVWIN";
+        };
     };
 
     keymap {
@@ -52,7 +80,7 @@
 
             bindings = <
 &kp TAB    &t_prefix   &trans      &trans     &trans      &trans         &trans   &kp N1  &kp N2    &kp N3  &trans  &kp BSPC
-&kp LCTRL  &trans      &trans      &t_nwin    &trans      &trans         &trans   &kp N4  &kp N5    &kp N6  &trans  &trans
+&kp LCTRL  &t_vsplit   &t_hsplit   &t_nwin    &t_pvwin    &t_cywin       &trans   &kp N4  &kp N5    &kp N6  &trans  &trans
 &kp LSHFT  &kp K_UNDO  &kp K_REDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE    &trans   &kp N7  &kp N8    &kp N9  &kp N0  &trans
                                    &kp LGUI   &trans      &kp SPACE      &kp RET  &mo 3   &kp RALT
             >;
