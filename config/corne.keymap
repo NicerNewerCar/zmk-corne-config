@@ -51,6 +51,20 @@
             bindings = <&t_prefix &kp P>;
             label = "T_PVWIN";
         };
+
+        treesitter_oc: treesitter_oc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(N)>;
+            label = "TREESITTER_OC";
+        };
+
+        treesitter_focus: treesitter_focus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(H)>;
+            label = "TREESITTER_FOCUS";
+        };
     };
 
     keymap {
@@ -79,10 +93,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &t_prefix   &trans      &trans     &trans      &trans         &trans   &kp N1  &kp N2    &kp N3  &trans  &kp BSPC
-&kp LCTRL  &t_vsplit   &t_hsplit   &t_nwin    &t_pvwin    &t_cywin       &trans   &kp N4  &kp N5    &kp N6  &trans  &trans
-&kp LSHFT  &kp K_UNDO  &kp K_REDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE    &trans   &kp N7  &kp N8    &kp N9  &kp N0  &trans
-                                   &kp LGUI   &trans      &kp SPACE      &kp RET  &mo 3   &kp RALT
+&kp TAB    &t_prefix   &trans      &trans     &treesitter_focus  &treesitter_oc    &trans   &kp N7  &kp N8    &kp N9  &trans  &kp BSPC
+&kp LCTRL  &t_vsplit   &t_hsplit   &t_nwin    &t_pvwin           &t_cywin          &trans   &kp N4  &kp N5    &kp N6  &trans  &trans
+&kp LSHFT  &kp K_UNDO  &kp K_REDO  &kp K_CUT  &kp K_COPY         &kp K_PASTE       &kp N0   &kp N1  &kp N2    &kp N3  &trans  &trans
+                                   &kp LGUI   &trans             &kp SPACE         &kp RET  &mo 3   &kp RALT
             >;
         };
 
@@ -94,10 +108,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp TILDE &trans &kp LPAR &kp RPAR &kp EQUAL    &kp PLUS   &kp EXCL  &kp AT     &kp HASH   &trans  &kp BSPC
-&kp LCTRL  &kp GRAVE &trans &kp LBRC &kp RBRC &kp BSLH     &kp MINUS  &kp DLLR  &kp PRCNT  &kp CARET  &trans  &trans
-&kp LSHFT  &trans    &trans &kp LBKT &kp RBKT &kp PIPE     &kp UNDER  &kp AMPS  &kp STAR   &trans     &trans  &trans
-                             &kp LGUI  &mo 3  &kp SPACE    &kp RET    &trans    &kp RALT
+&kp TAB    &kp TILDE  &trans  &kp LPAR  &kp RPAR  &trans       &kp PLUS   &kp AMPS  &kp STAR   &trans     &kp EQUAL      &kp BSPC
+&kp LCTRL  &kp GRAVE  &trans  &kp LBRC  &kp RBRC  &trans       &kp MINUS  &kp DLLR  &kp PRCNT  &kp CARET  &kp BACKSLASH  &trans
+&kp LSHFT  &trans     &trans  &kp LBKT  &kp RBKT  &trans       &kp UNDER  &kp EXCL  &kp AT     &kp HASH   &kp PIPE       &trans
+                              &kp LGUI  &mo 3     &kp SPACE    &kp RET    &trans    &kp RALT
             >;
         };
 
